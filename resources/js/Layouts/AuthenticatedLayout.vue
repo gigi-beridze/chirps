@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('chirps.index')" :active="route().current('chirps.index')">
                                     Chirps
                                 </NavLink>
+                                <NavLink v-if="$page.props.auth.user.isAdmin" :href="route('users.index')" :active="route().current('users.index')">
+                                    Users
+                                </NavLink>
                             </div>
                         </div>
 
@@ -120,7 +123,10 @@ const showingNavigationDropdown = ref(false);
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('chirps.index')" :active="route().current('chirps.index')">
                             Chirps  
-                        </ResponsiveNavLink>    
+                        </ResponsiveNavLink>   
+                        <ResponsiveNavLink v-if="$page.props.auth.user.isAdmin" :href="route('users.index')" :active="route().current('users.index')">
+                            Users
+                        </ResponsiveNavLink> 
                     </div>
 
                     <!-- Responsive Settings Options -->
